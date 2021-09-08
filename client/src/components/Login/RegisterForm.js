@@ -10,8 +10,14 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(() => ({
-  focus: {
+const useStyles = makeStyles((theme) => ({
+  padding: {
+    paddingBottom: theme.spacing(3),
+  },
+  margin: {
+    marginBottom: theme.spacing(20),
+  },
+  fontSize: {
     fontSize: "2.5rem",
   },
 }));
@@ -20,13 +26,13 @@ export default function RegisterForm(props) {
   const classes = useStyles();
 
   return (
-    <Box width="60%">
+    <Box width="60%"  className={classes.margin}>
       <Grid>
-        <Typography className={classes.focus}>Create an account.</Typography>
+        <Typography className={classes.fontSize}>Create an account.</Typography>
       </Grid>
       <form onSubmit={props.handleRegister}>
-        <Grid container direction="column">
-          <FormControl>
+        <Grid container direction="column" >
+          <FormControl  className={classes.padding}>
             <TextField
               aria-label="username"
               label="Username"
@@ -35,7 +41,7 @@ export default function RegisterForm(props) {
               required
             />
           </FormControl>
-          <FormControl>
+          <FormControl  className={classes.padding}>
             <TextField
               label="E-mail address"
               aria-label="e-mail address"
@@ -44,7 +50,7 @@ export default function RegisterForm(props) {
               required
             />
           </FormControl>
-          <FormControl error={!!props.formErrorMessage.confirmPassword}>
+          <FormControl error={!!props.formErrorMessage.confirmPassword}  className={classes.padding}>
             <TextField
               aria-label="password"
               label="Password"
@@ -57,7 +63,7 @@ export default function RegisterForm(props) {
               {props.formErrorMessage.confirmPassword}
             </FormHelperText>
           </FormControl>
-          <FormControl error={!!props.formErrorMessage.confirmPassword}>
+          <FormControl error={!!props.formErrorMessage.confirmPassword}  className={classes.padding}>
             <TextField
               label="Confirm Password"
               aria-label="confirm password"
@@ -70,7 +76,7 @@ export default function RegisterForm(props) {
               {props.formErrorMessage.confirmPassword}
             </FormHelperText>
           </FormControl>
-
+         
           <Button
             type="submit"
             variant="contained"
@@ -79,6 +85,7 @@ export default function RegisterForm(props) {
           >
             Create
           </Button>
+         
         </Grid>
       </form>
     </Box>
