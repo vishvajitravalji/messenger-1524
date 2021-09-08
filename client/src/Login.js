@@ -20,11 +20,11 @@ const Login = (props) => {
   }
 
   return (
-    <Grid container>
+    <Grid container item>
       <Grid sm={5}>
         <LoginSidebar />
       </Grid>
-      <Grid sm={7} container>
+      <Grid sm={7} container item>
         <Grid
           container
           item

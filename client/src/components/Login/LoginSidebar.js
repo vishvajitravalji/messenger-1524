@@ -23,8 +23,6 @@ const useStyles = makeStyles((theme) => ({
   text: theme.loginSidebar.text
 }));
 
-
-
 export default function LoginSidebar() {
   const classes = useStyles();
 

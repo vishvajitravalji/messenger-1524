@@ -24,7 +24,7 @@ export default function LoginForm(props) {
         <Typography className={classes.focus}>Welcome back!</Typography>
       </Grid>
       <form onSubmit={props.handleLogin}>
-        <Grid container direction="column" >
+        <Grid container direction="column"  >
           <FormControl required>
             <TextField 
               aria-label="username"

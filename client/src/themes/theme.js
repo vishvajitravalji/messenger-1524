@@ -6,7 +6,7 @@ export const theme = createTheme({
     fontSize: 16,
     button: {
       textTransform: "none",
-      letterSpacing: 0,
+      letterSpacing: 1,
       fontWeight: "regular"
     }
   },
