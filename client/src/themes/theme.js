@@ -1,24 +1,42 @@
-import { createMuiTheme } from "@material-ui/core";
+import { createTheme } from "@material-ui/core";
 
-export const theme = createMuiTheme({
+export const theme = createTheme({
   typography: {
     fontFamily: "Open Sans, sans-serif",
-    fontSize: 14,
+    fontSize: 16,
     button: {
       textTransform: "none",
       letterSpacing: 0,
-      fontWeight: "bold"
+      fontWeight: "regular"
     }
   },
   overrides: {
     MuiInput: {
       input: {
-        fontWeight: "bold"
+        fontWeight: "regular"
       }
+    }
+  },
+  loginNavigation: {
+    navigationBar: {
+     margin: '0'
+    },
+    text: {
+      fontSize: 15
+    }
+  },
+  loginSidebar: {
+    text: {
+      fontSize: '1.5rem',
+      color: 'white',
+      letterSpacing: 1,
     }
   },
   palette: {
     primary: { main: "#3A8DFF" },
-    secondary: { main: "#B0B0B0" }
+    secondary: { main: "#B0B0B0" },
+    gradient: { main: "#86B9FF" }
+
+    
   }
 });
