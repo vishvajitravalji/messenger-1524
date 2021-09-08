@@ -26,13 +26,13 @@ export default function RegisterForm(props) {
   const classes = useStyles();
 
   return (
-    <Box width="60%"  className={classes.margin}>
+    <Box width="60%" className={classes.margin}>
       <Grid>
         <Typography className={classes.fontSize}>Create an account.</Typography>
       </Grid>
       <form onSubmit={props.handleRegister}>
-        <Grid container direction="column" >
-          <FormControl  className={classes.padding}>
+        <Grid container direction="column">
+          <FormControl className={classes.padding}>
             <TextField
               aria-label="username"
               label="Username"
@@ -41,7 +41,7 @@ export default function RegisterForm(props) {
               required
             />
           </FormControl>
-          <FormControl  className={classes.padding}>
+          <FormControl className={classes.padding}>
             <TextField
               label="E-mail address"
               aria-label="e-mail address"
@@ -50,7 +50,10 @@ export default function RegisterForm(props) {
               required
             />
           </FormControl>
-          <FormControl error={!!props.formErrorMessage.confirmPassword}  className={classes.padding}>
+          <FormControl
+            error={!!props.formErrorMessage.confirmPassword}
+            className={classes.padding}
+          >
             <TextField
               aria-label="password"
               label="Password"
@@ -63,7 +66,10 @@ export default function RegisterForm(props) {
               {props.formErrorMessage.confirmPassword}
             </FormHelperText>
           </FormControl>
-          <FormControl error={!!props.formErrorMessage.confirmPassword}  className={classes.padding}>
+          <FormControl
+            error={!!props.formErrorMessage.confirmPassword}
+            className={classes.padding}
+          >
             <TextField
               label="Confirm Password"
               aria-label="confirm password"
@@ -76,7 +82,7 @@ export default function RegisterForm(props) {
               {props.formErrorMessage.confirmPassword}
             </FormHelperText>
           </FormControl>
-         
+
           <Button
             type="submit"
             variant="contained"
@@ -85,7 +91,6 @@ export default function RegisterForm(props) {
           >
             Create
           </Button>
-         
         </Grid>
       </form>
     </Box>

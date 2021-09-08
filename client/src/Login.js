@@ -34,7 +34,7 @@ const Login = (props) => {
         >
           <LoginNavigation
             text="Don't have an account?"
-            route="/register"
+            route="/sign-up"
             button="Create account"
           />
         </Grid>

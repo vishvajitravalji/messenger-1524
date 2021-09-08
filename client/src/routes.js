@@ -42,7 +42,7 @@ const Routes = (props) => {
       )}
       <Switch>
         <Route path="/login" component={Login} />
-        <Route path="/register" component={Signup} />
+        <Route path="/sign-up" component={Signup} />
         <Route
           exact
           path="/"
