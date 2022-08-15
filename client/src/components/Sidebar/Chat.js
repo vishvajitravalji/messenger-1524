@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import { Box } from "@material-ui/core";
 import { BadgeAvatar, ChatContent } from "../Sidebar";
-import { makeStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import { setActiveChat } from "../../store/activeConversation";
 import { connect } from "react-redux";
 
-const useStyles = makeStyles((theme) => ({
+const styles = {
   root: {
     borderRadius: 8,
     height: 80,
@@ -14,39 +14,42 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     "&:hover": {
-      cursor: "grab"
-    }
-  }
-}));
+      cursor: "grab",
+    },
+  },
+};
 
-const Chat = (props) => {
-  const classes = useStyles();
-  const { conversation } = props;
-  const { otherUser } = conversation;
-
-  const handleClick = async (conversation) => {
-    await props.setActiveChat(conversation.otherUser.username);
+class Chat extends Component {
+  handleClick = async (conversation) => {
+    await this.props.setActiveChat(conversation.otherUser.username);
   };
 
-  return (
-    <Box onClick={() => handleClick(conversation)} className={classes.root}>
-      <BadgeAvatar
-        photoUrl={otherUser.photoUrl}
-        username={otherUser.username}
-        online={otherUser.online}
-        sidebar={true}
-      />
-      <ChatContent conversation={conversation} />
-    </Box>
-  );
-};
+  render() {
+    const { classes } = this.props;
+    const otherUser = this.props.conversation.otherUser;
+    return (
+      <Box
+        onClick={() => this.handleClick(this.props.conversation)}
+        className={classes.root}
+      >
+        <BadgeAvatar
+          photoUrl={otherUser.photoUrl}
+          username={otherUser.username}
+          online={otherUser.online}
+          sidebar={true}
+        />
+        <ChatContent conversation={this.props.conversation} />
+      </Box>
+    );
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     setActiveChat: (id) => {
       dispatch(setActiveChat(id));
-    }
+    },
   };
 };
 
-export default connect(null, mapDispatchToProps)(Chat);
+export default connect(null, mapDispatchToProps)(withStyles(styles)(Chat));
